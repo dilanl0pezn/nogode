@@ -1,23 +1,22 @@
 {
   "name": "nogode",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Go-style error handling for Node.js with TypeScript support, NestJS integration, and functional-style Result objects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/esm/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:types": "tsc -p tsconfig.types.json",
     "dev": "ts-node examples/basic-usage.ts",
     "dev:nest": "ts-node examples/nestjs-usage.ts",
     "clean": "rm -rf dist",
