@@ -15,9 +15,8 @@ Uma biblioteca moderna para tratamento de erros em Node.js inspirada no padrão 
 ## 📦 Instalação
 
 ```bash
-npm install go-errors-node pino
-# ou
-yarn add go-errors-node pino
+npm install nogode pino
+
 ```
 
 Para uso com NestJS, instale também:
@@ -31,7 +30,7 @@ npm install @nestjs/common @nestjs/core reflect-metadata
 ### Pattern Go-Style Simples
 
 ```typescript
-import { Ok, Err, Result, ValidationError } from 'go-errors-node';
+import { Ok, Err, Result, ValidationError } from 'nogode';
 
 function findUser(id: string): Result<User, Error> {
   if (!id) {
@@ -61,7 +60,7 @@ console.log('User:', user.name);
 ### Operações Assíncronas
 
 ```typescript
-import { tryAsync, wrapPromise } from 'go-errors-node';
+import { tryAsync, wrapPromise } from 'nogode';
 
 // Envolver funções async
 async function fetchUser(id: string) {
@@ -89,7 +88,7 @@ async function getData() {
 ### Composição de Operações
 
 ```typescript
-import { chain, map, combine } from 'go-errors-node';
+import { chain, map, combine } from 'nogode';
 
 // Encadear operações
 const result = chain(
@@ -115,7 +114,7 @@ const [users, err] = combine(results);
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { GoErrorsModule } from 'go-errors-node';
+import { GoErrorsModule } from 'nogode';
 
 @Module({
   imports: [
@@ -144,7 +143,7 @@ import {
   NotFoundError, 
   ValidationError,
   ErrorLogger 
-} from 'go-errors-node';
+} from 'nogode';
 
 @Injectable()
 export class UserService {
@@ -190,7 +189,7 @@ export class UserService {
 
 ```typescript
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { Result } from 'go-errors-node';
+import { Result } from 'nogode';
 
 @Controller('users')
 export class UserController {
@@ -284,7 +283,7 @@ new TimeoutError('Request timeout');
 ## 📝 Logging com Pino
 
 ```typescript
-import { initializeLogger, getLogger } from 'go-errors-node';
+import { initializeLogger, getLogger } from 'nogode';
 
 // Inicializar logger globalmente
 const logger = initializeLogger({
@@ -316,7 +315,7 @@ const childLogger = logger.child({ service: 'UserService' });
 ### Unwrap
 
 ```typescript
-import { unwrap, unwrapOr } from 'go-errors-node';
+import { unwrap, unwrapOr } from 'nogode';
 
 // Unwrap (lança exceção se houver erro)
 try {
@@ -333,7 +332,7 @@ const user = unwrapOr(await findUser(id), { id: 'guest', name: 'Guest' });
 ### Map e MapError
 
 ```typescript
-import { map, mapError } from 'go-errors-node';
+import { map, mapError } from 'nogode';
 
 // Transformar dados de sucesso
 const result = map(
@@ -351,7 +350,7 @@ const result = mapError(
 ### Operações em Lote
 
 ```typescript
-import { combine, combineAsync } from 'go-errors-node';
+import { combine, combineAsync } from 'nogode';
 
 // Combinar resultados síncronos
 const results = [

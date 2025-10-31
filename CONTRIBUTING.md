@@ -1,4 +1,4 @@
-# Contribuindo para go-errors-node
+# Contribuindo para nogode
 
 Obrigado por seu interesse em contribuir! Este guia vai ajudá-lo a começar.
 
@@ -13,8 +13,8 @@ Obrigado por seu interesse em contribuir! Este guia vai ajudá-lo a começar.
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/yourusername/go-errors-node.git
-cd go-errors-node
+git clone https://github.com/dilanl0pezn/nogode.git
+cd nogode
 ```
 
 2. Instale as dependências:
